@@ -21,7 +21,12 @@ fastdelta.o: ./src/fastdelta.c $(HEADERS)
 example: ./example.c    $(HEADERS) $(OBJECTS)
 	$(CC) $(CFLAGS) -o example ./example.c -Iinclude  $(OBJECTS)
 
-unit: ./tests/unit.c    $(HEADERS) $(OBJECTS)
+unit: clean ./tests/unit.c $(HEADERS) $(OBJECTS)
 	$(CC) $(CFLAGS) -o unit ./tests/unit.c -Iinclude  $(OBJECTS)
+	./unit
+
 clean:
 	rm -f unit *.o example 
+
+format:
+	clang-format -i src/*
