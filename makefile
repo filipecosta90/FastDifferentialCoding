@@ -29,4 +29,5 @@ clean:
 	rm -f unit *.o example 
 
 format:
+	clang-format -i tests/*
 	clang-format -i src/*

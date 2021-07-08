@@ -177,7 +177,6 @@ size_t _ddelta_enc64(const int64_t *__restrict__ in, size_t n,
                      int64_t *__restrict__ out) {
   if (!n)
     return 0;
-  out[0] = in[0];
   // compute deltas
   compute_deltas64(in, n, out, 0);
   // compute deltas of deltas
